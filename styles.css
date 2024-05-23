@@ -1,0 +1,430 @@
+/* General Styling */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    scroll-behavior: smooth; /* Smooth scrolling */
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.5), /* Semi-transparent black overlay */
+        rgba(0, 0, 0, 0.5)
+    ), url('b4kbackground.jpg') no-repeat center center fixed; /* Your background image */
+    background-size: cover; /* Ensures the background image covers the entire viewport */
+    position: relative; /* Ensures proper stacking context */
+}
+
+/* Header and Navbar Styling */
+header {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background to enhance visibility */
+    color: white; /* Ensures text is visible */
+    padding: 10px 20px;
+    position: fixed; /* Keeps the navbar fixed at the top */
+    top: 0;
+    z-index: 1000; /* Keeps the navbar above other content */
+    backdrop-filter: blur(5px); /* Apply a blur effect to the background within the header */
+    border-bottom: none;
+    box-sizing: border-box;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between; /* Space items evenly */
+    align-items: center;
+    width: calc(100% - 40px);
+    margin: 0 auto;
+}
+
+nav ul {
+    list-style-type: none; /* Removes bullet points from the list */
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block; /* Align items in a line */
+    margin-right: 20px; /* Right margin for spacing between nav items */
+}
+
+nav ul li a {
+    color: white; /* Set text color */
+    text-decoration: none; /* Removes underline from links */
+    font-size: 16px; /* Sets font size */
+    transition: color 0.3s ease-in-out; /* Smooth transition for hover effects */
+}
+
+nav ul li a:hover, nav ul li a:focus {
+    color: #F39C12; /* Change color on hover/focus for better interaction */
+}
+
+/* Language Buttons Styling */
+.languages {
+    position: absolute; /* Positions the languages container absolutely */
+    top: 70px; /* Distance from the top of the page to avoid the navbar */
+    left: 10px; /* Distance from the left of the page */
+    z-index: 500; /* Ensure it's above other content but below the navbar */
+    display: flex;
+    flex-wrap: wrap; /* Allow the buttons to wrap to the next line */
+    gap: 10px; /* Space between buttons */
+}
+
+.language-button {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 50px; /* Pill-shaped */
+    background: rgba(255, 255, 255, 0.1); /* Transparent background */
+    color: white;
+    font-size: 12px; /* Font size for the buttons */
+    font-weight: 300; /* Thinner font weight */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* More refined font-family */
+    text-transform: uppercase;
+    cursor: default; /* Cursor indicates non-clickable */
+    transition: background 0.3s ease-in-out, transform 0.3s ease-in-out; /* Smooth transition for hover effects */
+}
+
+.language-button:hover {
+    background: rgba(255, 255, 255, 0.3); /* Slightly more opaque on hover */
+    transform: scale(1.1); /* Scale up slightly on hover */
+}
+
+/* Intro Styling */
+#intro {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000; /* Ensuring the background is set to black */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFFFFF;
+    text-align: center;
+    z-index: 3000;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 1s, transform 1s; /* Ensures transitions are defined for opacity and transform */
+}
+
+.dot {
+    height: 0.3em;
+    width: 0.3em;
+    background-color: #FFFFFF;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 0.3em;
+    vertical-align: middle;
+}
+
+#hello {
+    color: #FFFFFF;
+    font-size: 4rem; /* Larger font size */
+    text-align: center;
+    animation: fadeInOut 3s ease-in-out forwards, colorChange 15s infinite;
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@keyframes colorChange {
+    0%, 100% { color: #FFFFFF; }
+    25% { color: #F39C12; } /* Orange */
+    50% { color: #3498DB; } /* Blue */
+    75% { color: #2ECC71; } /* Green */
+}
+
+/* Introduction Section Styling */
+#intro-section {
+    margin-top: 60px; /* Add more space to position below the languages */
+    text-align: left;
+    color: white;
+    max-width: 500px; /* Limit the width of the section */
+    padding-left: 20px; /* Move it further to the left */
+}
+
+#intro-section h1 {
+    font-size: 2.5rem;
+    margin: 10px 0;
+    font-weight: 400; /* Ensure the text is not bold */
+}
+
+#intro-section .name {
+    color: #5d52fade; /* Tokyo night purple */
+    font-weight: 400; /* Ensure the text is not bold */
+}
+
+#intro-section p {
+    font-size: 1rem;
+    color: #CCCCCC; /* Light gray for the description */
+    margin-top: 10px; /* Small margin on top */
+}
+
+/* Button Styling */
+.button-container {
+    margin-top: 20px;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 50px; /* Pill-shaped */
+    background-color: #5a49c7; /* Button color */
+    color: rgb(0, 0, 0);
+    font-size: 14px;
+    text-transform: uppercase;
+    text-decoration: none; /* Removes underline */
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out; /* Smooth transition for hover effects */
+}
+
+.button:hover {
+    background-color: #5a49c7; /* Slightly darker shade on hover */
+    transform: scale(1.05); /* Slightly scale up on hover */
+}
+
+/* GIF Styling */
+.gif-container {
+    margin: 40px auto; /* Center the container horizontally */
+    margin-left: -58px;
+    width: calc(1000% - 5cm); /* Leave a 1cm space on both sides */
+    max-width: 1200px; /* Ensure the gif doesn't get too large */
+    height: 600px; /* Set a specific height for the gif */
+    border-radius: 15px; /* Rounded corners */
+    overflow: hidden; /* Ensures the corners stay rounded */
+    background: transparent; /* Ensure the background is transparent */
+    padding: 0 1cm; /* Adjust padding to ensure it doesn't align with text */
+    
+}
+
+.gif-image {
+    width: 75%; /* Make the image fill the container */
+    height: 100%; /* Ensure the image fills the height */
+    border-radius: 15px; /* Rounded corners */
+    background: transparent; /* Ensure the background is transparent */
+    transition: transform 0.3s ease-in-out; /* Smooth hover effect */
+}
+
+.gif-image:hover {
+    transform: scale(1.05); /* Slightly scale up on hover */
+}
+
+/* Content Styling */
+.home-content {
+    padding: 60px 20px;
+    margin-top: 100px; /* Margin top to avoid content overlap with fixed navbar */
+    clear: both; /* Clears any floating elements */
+}
+
+#about, #projects, #contact {
+    background-color: #ecf0f1; /* Lighter gray for these sections for contrast */
+    padding-bottom: 20px; /* More padding at the bottom */
+}
+/* About Section Styling */
+#about {
+    padding: 60px 20px;
+    color: white;
+    transition: transform 0.3s ease-in-out; /* Smooth hover effect */
+    border-radius: 15px; /* Rounded corners */
+    background: transparent;
+}
+
+#about:hover {
+    transform: scale(1.02); /* Slightly scale up on hover */
+}
+
+#about h2 {
+    color: #5d52fac2; /* Tokyo night purple */
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+#about p {
+    font-size: 1rem;
+    color: #CCCCCC; /* Light gray for the text */
+    line-height: 1.6; /* Increase line height for better readability */
+}
+#skills-section {
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#skills-section h3 {
+    font-size: 1.5rem;
+    color: #5d52fade; /* Tokyo night purple */
+    margin-bottom: 10px;
+    flex-basis: 100%; /* Make the heading take full width */
+}
+
+#skills-section p {
+    font-size: 1rem;
+    color: #CCCCCC; /* Light gray for the text */
+    margin-bottom: 20px;
+    flex-basis: 100%; /* Make the paragraph take full width */
+}
+
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.skill-box {
+    background: rgba(255, 255, 255, 0.1); /* Slightly transparent background */
+    border-radius: 15px; /* Rounded corners */
+    padding: 20px;
+    transition: transform 0.3s ease-in-out; /* Smooth hover effect */
+    flex: 1 1 calc(50% - 20px); /* Flexbox with two items per row */
+    box-sizing: border-box;
+}
+
+.skill-box:hover {
+    transform: scale(1.05); /* Slightly scale up on hover */
+}
+
+.skill-box h4 {
+    color: white;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.skill-box p {
+    color: #CCCCCC; /* Light gray for the text */
+    font-size: 1rem;
+}
+
+#projects {
+    padding: 60px 20px;
+    color: white;
+    transition: transform 0.3s ease-in-out; /* Smooth hover effect */
+    border-radius: 15px; /* Rounded corners */
+    background: transparent;
+}
+
+#projects:hover {
+    transform: scale(1.02); /* Slightly scale up on hover */
+}
+
+#projects h2 {
+    color: #5d52fade; /* Tokyo night purple */
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+#projects h3 {
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+#projects .project-summary {
+    font-size: 1rem;
+    color: #CCCCCC; /* Light gray for the text */
+    margin-bottom: 20px;
+}
+
+.project-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.project-box {
+    background: rgba(255, 255, 255, 0.1); /* Slightly transparent background */
+    border-radius: 15px; /* Rounded corners */
+    padding: 20px;
+    flex: 1;
+    transition: transform 0.3s ease-in-out; /* Smooth hover effect */
+}
+
+.project-box:hover {
+    transform: scale(1.05); /* Slightly scale up on hover */
+}
+
+.project-box h3 {
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.project-box p {
+    color: #CCCCCC; /* Light gray for the text */
+    font-size: 1rem;
+    line-height: 1.6; /* Increase line height for better readability */
+}
+/* Contact Section Styling */
+#contact {
+    padding: 60px 20px;
+    color: white;
+    background: transparent; /* Ensure the background is transparent */
+    border-radius: 15px; /* Rounded corners */
+    transition: transform 0.3s ease-in-out; /* Smooth hover effect */
+}
+
+#contact:hover {
+    transform: scale(1.02); /* Slightly scale up on hover */
+}
+
+#contact h2 {
+    color: #5d52fade; /* Tokyo night purple */
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Space between form groups */
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Space between label and input */
+}
+
+.form-group label {
+    font-size: 1rem;
+    color: white;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 10px;
+    font-size: 1rem;
+    color: rgb(255, 255, 255);
+    background: transparent;
+    border: none;
+    border-color: #5a49c7;
+    border-radius: 10px; /* Rounded corners */
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none; /* Remove default focus outline */
+    box-shadow: 0 0 10px rgba(90, 73, 199, 0.5); /* Custom focus outline */
+}
+
+#contact-form button {
+    align-self: flex-start; /* Align button to the left */
+    padding: 10px 20px;
+    border-radius: 50px; /* Pill-shaped */
+    background-color: #5a49c7; /* Button color */
+    color: rgb(3, 3, 3);
+    font-size: 14px;
+    text-transform: uppercase;
+    text-decoration: none; /* Removes underline */
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out; /* Smooth transition for hover effects */
+}
+
+#contact-form button:hover {
+    background-color: #5a49c7; /* Slightly darker shade on hover */
+    transform: scale(1.05); /* Slightly scale up on hover */
+}

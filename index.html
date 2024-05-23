@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ibrahim Aldarraji's Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav id="navbar">
+            <div class="logo">
+                <h1>Ibrahim</h1>
+            </div>
+            <ul>
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="languages">
+        <span class="language-button">Python</span>
+        <span class="language-button">Java</span>
+        <span class="language-button">JavaScript</span>
+        <span class="language-button">C</span>
+        <span class="language-button">HTML</span>
+        <span class="language-button">CSS</span>
+        <span class="language-button">SQL</span>
+    </div>
+
+    <div id="intro">
+        <h1 id="hello"><span class="dot"></span><span id="greeting-text">Hello</span></h1>
+    </div>
+    
+    <div class="home-content" id="home">
+        <section id="intro-section">
+            <h1 class="greeting">Hello, I'm</h1>
+            <h1 class="name">Ibrahim.</h1>
+            <p class="description">An Applied Computer Science student focused on Software Engineering. Passionate about developing innovative solutions and creating unique digital experiences.</p>
+            <div class="button-container">
+                <a href="mailto:ialdarra@gmu.edu" class="button">Get in Touch</a>
+                <a href="ibrahim-resume2.pdf" class="button" target="_blank">Resume</a> <!-- New Resume Button -->
+            </div>
+            <div class="gif-container">
+                <img src="world.gif" alt="World Animation" class="gif-image">
+            </div>
+        </section>
+    </div>
+
+    <div id="about">
+        <h2>About Me</h2>
+            <p>I'm a dedicated and passionate software engineer with extensive experience in data structures, algorithms, and software development. My journey in the field of computer science has equipped me with a robust foundation in various programming languages including Python, Java, JavaScript, and C. I thrive on solving complex problems and creating efficient, scalable solutions.</p>
+            <p>My professional background includes roles that have allowed me to develop and refine my skills in software engineering, web development, and data analysis. I am currently pursuing a Bachelor of Science in Applied Computer Science with a focus on Software Engineering at George Mason University. My academic journey, coupled with hands-on experience through internships and projects, has prepared me to tackle real-world challenges in the tech industry.</p>
+            <p>Beyond my technical abilities, I am an advocate for continuous learning and improvement. I enjoy collaborating with cross-functional teams to deliver high-quality software solutions that meet user needs and business objectives. My goal is to contribute to innovative projects that make a significant impact, leveraging technology to solve critical problems and enhance user experiences.</p>
+    </div>
+    <div id="skills-section">
+        <h3>Need more info?</h3>
+        <p>Here are some of the skills and expertise I bring to the table. If you have any questions or need further information, please don't hesitate to reach out.</p>
+        <div class="skills-container">
+            <div class="skill-box">
+                <h4>Object-Oriented Programming (OOP)</h4>
+                <p>Proficient in designing and implementing software using OOP principles, particularly in Java and Python.</p>
+            </div>
+            <div class="skill-box">
+                <h4>Web Development</h4>
+                <p>Skilled in front-end and back-end development using HTML, CSS, JavaScript, and API integration.</p>
+            </div>
+            <div class="skill-box">
+                <h4>Software Usability and Design</h4>
+                <p>Experienced in creating user-friendly software interfaces and conducting usability testing.</p>
+            </div>
+            <div class="skill-box">
+                <h4>Data Structures and Algorithms</h4>
+                <p>Strong understanding of fundamental data structures and algorithms, applied in various programming projects.</p>
+            </div>
+            <div class="skill-box">
+                <h4>Multiplatform Software Development</h4>
+                <p>Experienced in developing software for multiple operating systems, including Linux, Windows, and macOS.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="projects" id="project">
+        <h2>Projects</h2>
+    <p class="project-summary">Here are some of the projects I have worked on, showcasing my skills and expertise in software development.</p>
+        <div class="project-container">
+            <div class="project-box">
+                <h3>SpeedBrief</h3>
+                <p>SpeedBrief is a web platform that aggregates automotive news. It is built using HTML, CSS, and JavaScript, and integrates various APIs to provide users with the latest updates in the automotive industry. The project demonstrates my ability to develop dynamic and responsive web applications, manage API integrations, and create user-friendly interfaces.</p>
+            </div>
+            <div class="project-box">
+                <h3>MemoryForge</h3>
+                <p>MemoryForge is a memory assembly tool developed during my internship at the Krasnow Institute. It assists researchers in cognitive psychology and neuroscience by providing a platform to assemble and manage memory-related data. The project showcases my skills in software development, data management, and the application of technology in scientific research.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <form id="contact-form" method="post" action="/api/send_email">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="button">Send Message</button>
+        </form>
+    </section>
+    </div>
+    <script type="module" src="script.js"></script>
+</body>
+</html>
