@@ -34,3 +34,4 @@ export default async (req, res) => {
     res.status(405).json({ success: false, message: 'Invalid request method.' });
   }
 };
+
