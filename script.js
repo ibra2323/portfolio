@@ -45,7 +45,14 @@ document.getElementById('contact-form').addEventListener('submit', function (e) 
 
     fetch('/api/send_email', {
         method: 'POST',
-        body: formData
+        body: JSON.stringify({
+            name: formData.get('name'),
+            email: formData.get('email'),
+            message: formData.get('message')
+        }),
+        headers: {
+            'Content-Type': 'application/json'
+        }
     })
     .then(response => response.json())
     .then(data => {
@@ -54,7 +61,7 @@ document.getElementById('contact-form').addEventListener('submit', function (e) 
             contactMessage.textContent = 'Message sent successfully!';
             contactMessage.style.color = 'green';
         } else {
-            contactMessage.textContent = 'Message sending failed.';
+            contactMessage.textContent = `Message sending failed: ${data.message}`;
             contactMessage.style.color = 'red';
         }
         // Clear the form
@@ -62,7 +69,8 @@ document.getElementById('contact-form').addEventListener('submit', function (e) 
     })
     .catch(error => {
         const contactMessage = document.getElementById('contact-message');
-        contactMessage.textContent = 'An error occurred. Please try again later.';
+        contactMessage.textContent = `An error occurred: ${error.message}`;
         contactMessage.style.color = 'red';
     });
 });
+
