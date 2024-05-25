@@ -37,3 +37,32 @@ function fadeOutIntro() {
         intro.style.display = 'none';
     }, 1000); // Wait for the transition to complete before hiding the intro
 }
+// Handle contact form submission
+document.getElementById('contact-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const formData = new FormData(this);
+
+    fetch('/api/send_email', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        const contactMessage = document.getElementById('contact-message');
+        if (data.success) {
+            contactMessage.textContent = 'Message sent successfully!';
+            contactMessage.style.color = 'green';
+        } else {
+            contactMessage.textContent = 'Message sending failed.';
+            contactMessage.style.color = 'red';
+        }
+        // Clear the form
+        document.getElementById('contact-form').reset();
+    })
+    .catch(error => {
+        const contactMessage = document.getElementById('contact-message');
+        contactMessage.textContent = 'An error occurred. Please try again later.';
+        contactMessage.style.color = 'red';
+    });
+});
