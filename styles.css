@@ -429,40 +429,61 @@ nav ul li a:hover, nav ul li a:focus {
     transform: scale(1.05); /* Slightly scale up on hover */
 }
 /* Media Queries for Mobile */
+/* Media Queries for Mobile Responsiveness */
 @media (max-width: 768px) {
     nav ul {
+        display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 10px;
+        width: 100%;
+    }
+
+    nav ul li {
+        margin-right: 0;
+        margin-bottom: 10px;
     }
 
     .languages {
-        top: 100px;
-        left: 50%;
-        transform: translateX(-50%);
+        position: static;
+        margin-top: 20px;
         justify-content: center;
     }
 
-    #intro-section, .gif-container, .skills-container, .project-container, #contact-form {
+    #intro-section {
         max-width: 100%;
-        padding: 0 20px;
+        padding-left: 20px;
     }
 
     .button-container {
+        display: flex;
         flex-direction: column;
         gap: 10px;
     }
 
     .gif-container {
-        width: calc(100% - 2cm);
+        width: 100%;
+        height: auto;
         margin-left: 0;
     }
 
-    .project-box, .skill-box {
+    .gif-image {
+        width: 100%;
+        height: auto;
+    }
+
+    .skills-container {
+        flex-direction: column;
+    }
+
+    .skill-box {
         flex: 1 1 100%;
     }
 
-    #contact-form {
-        width: 100%;
+    .project-container {
+        flex-direction: column;
+    }
+
+    .project-box {
+        flex: 1 1 100%;
     }
 }
