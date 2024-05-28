@@ -469,6 +469,9 @@ nav ul li a:hover, nav ul li a:focus {
     .project-box, .skill-box {
         flex: 1 1 100%;
     }
+    .project-container {
+        flex-direction: column;
+    }
 
     #contact-form {
         width: 100%;
