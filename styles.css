@@ -444,7 +444,7 @@ nav ul li a:hover, nav ul li a:focus {
 
     #intro-section, .gif-container, .skills-container, .project-container, #contact-form {
         max-width: 100%;
-        padding: 0 20px;
+        padding:  20px;
     }
 
     .button-container {
