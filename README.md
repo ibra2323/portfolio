@@ -31,7 +31,8 @@ Aldarraji.com is designed to provide an overview of my background, including my 
 - HTML5
 - CSS3
 - JavaScript
-- Bootstrap
+- Node.js
+- React.js
 
 ## Installation
 
@@ -47,7 +48,17 @@ To run this project locally, follow these steps:
    cd Aldarraji.com
    ```
 
-3. Open `index.html` in your web browser.
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+4. Start the development server:
+   ```bash
+   npm start
+   ```
+
+5. Open your web browser and go to `http://localhost:3000`.
 
 ## Usage
 
