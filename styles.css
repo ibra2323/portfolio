@@ -208,19 +208,27 @@ canvas {
   background: transparent; /* Transparent canvas background */
 }
 
-/* gif-container for circular waves */
-.gif-container {
+/* Center-wrapper to isolate the centering behavior */
+.center-wrapper {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  justify-content: center; /* Centers the gif-container horizontally */
+  align-items: center; /* Centers the gif-container vertically */
+  height: 400px; /* Matches the height of the gif-container or adjusts as needed */
+  width: 100%; /* Full width to align with the page */
+  position: relative; /* Ensures it stays between sections without affecting others */
+  margin: 50px 0; /* Adds spacing between the "Hello" and "About Me" sections */
+}
+
+/* Ensure the gif-container itself is centered within the wrapper */
+.gif-container {
   width: 300px; /* Diameter of the circle */
   height: 300px; /* Diameter of the circle */
-  border-radius: 50%; /* Makes the container a circle */
-  overflow: hidden; /* Ensures waves don't spill outside the circle */
+  border-radius: 50%; /* Makes it a circle */
+  overflow: hidden; /* Prevents overflow */
   background: transparent; /* Transparent background */
-  margin: 50px auto; /* Centers it horizontally and adds space above/below */
-  position: relative; /* Ensures children are positioned correctly */
+  position: relative; /* Positioning for child elements like waves */
 }
+
 
 
 /* Content Styling */
