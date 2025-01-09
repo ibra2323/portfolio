@@ -213,13 +213,13 @@ canvas {
 
 /* gif-container may need adjustments to prevent restricting width */
 .gif-container {
-   position: relative;
-  width: 500px; /* Width of the container */
-  height: 500px; /* Height of the container */
+  position: relative;
+  width: 500px; /* Diameter of the circle */
+  height: 500px; /* Diameter of the circle */
   margin: 0 auto; /* Centers horizontally */
   margin-top: 50px; /* Adjust to center vertically between sections */
-  border-radius: 20px; /* Rounded corners */
-  overflow: hidden; /* Ensures waves stay within the container */
+  border-radius: 50%; /* Makes it a circle */
+  overflow: hidden; /* Ensures waves stay within the circle */
   background: transparent; /* Transparent background */
 }
 
