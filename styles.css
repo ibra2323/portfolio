@@ -193,41 +193,33 @@ nav ul li a:hover, nav ul li a:focus {
 /* styles.css */
 
 /* Ensure #waves spans the entire .gif-container */
+/* Ensure #waves spans the entire wave-section */
 #waves {
   width: 100%;
   height: 100%;
-  position: absolute; /* Ensures it fills the parent container exactly */
+  position: relative;
 }
 
 /* Ensure the canvas fills its parent container */
 canvas {
-  display: block; /* Ensures canvas behaves as a block element */
-  width: 100%; /* Fills the full width of the parent */
-  height: 100%; /* Matches the height of the parent */
-  background: transparent; /* Transparent canvas background */
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: transparent;
 }
 
-/* Center-wrapper to isolate the centering behavior */
-.center-wrapper {
+/* Wave-section to center the waves and make them responsive */
+.wave-section {
   display: flex;
-  justify-content: center; /* Centers the gif-container horizontally */
-  align-items: center; /* Centers the gif-container vertically */
-  min-height: 100vh; /* Ensures it takes up the full viewport height */
-  position: relative; /* Ensures proper positioning */
-  margin: 0; /* No extra margin */
-  padding: 0; /* No padding */
+  justify-content: center; /* Centers the waves horizontally */
+  align-items: center;     /* Centers the waves vertically */
+  width: 100%;
+  height: 400px;           /* Adjust height as needed */
+  overflow: hidden;
+  background: transparent;
+  margin: 50px 0;          /* Adjusts spacing between sections */
 }
 
-/* Ensure the gif-container itself is centered within the wrapper */
-.gif-container {
-  width: 300px; /* Diameter of the circle */
-  height: 300px; /* Diameter of the circle */
-  border-radius: 50%; /* Makes it a circle */
-  overflow: hidden; /* Prevents overflow */
-  background: transparent; /* Transparent background */
-  position: relative; /* Positioning for child elements like waves */
-  z-index: 1; /* Ensure it's above the waves */
-}
 
 /* Content Styling */
 .home-content {
