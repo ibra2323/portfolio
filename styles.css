@@ -213,13 +213,13 @@ canvas {
 
 /* gif-container may need adjustments to prevent restricting width */
 .gif-container {
-  margin: 0 auto; /* Center it horizontally */
-  width: 100%; /* Allow it to span the full width */
-  max-width: 1200%; /* Ensure it doesn’t restrict width */
-  height: auto; /* Let the height adjust based on content */
-  border-radius: 0; /* No rounded corners */
-  overflow: hidden; /* Prevent overflowing content */
-  padding: 0; /* No padding */
+   position: relative;
+  width: 500px; /* Width of the container */
+  height: 500px; /* Height of the container */
+  margin: 0 auto; /* Centers horizontally */
+  margin-top: 50px; /* Adjust to center vertically between sections */
+  border-radius: 20px; /* Rounded corners */
+  overflow: hidden; /* Ensures waves stay within the container */
   background: transparent; /* Transparent background */
 }
 
