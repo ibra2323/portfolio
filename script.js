@@ -91,7 +91,6 @@ class Noise {
     this.perm = [...this.p, ...this.p];
     this.gradP = this.perm.map(v => this.grad3[v % 12]);
   }
-
   fade(t) { return t * t * t * (t * (t * 6 - 15) + 10); }
   lerp(a, b, t) { return (1 - t) * a + t * b; }
   perlin2(x, y) {
@@ -113,7 +112,6 @@ class Noise {
 function renderWaves() {
   const canvas = document.createElement('canvas');
   const ctx = canvas.getContext('2d');
-  const noise = new Noise();
   const container = document.getElementById('waves');
   const width = container.offsetWidth;
   const height = 300;
@@ -122,17 +120,33 @@ function renderWaves() {
   canvas.height = height;
   container.appendChild(canvas);
 
+  const noise = new Noise();
+
+  let mouse = { x: width / 2, y: height / 2 };
+
+  // Track the mouse position
+  container.addEventListener('mousemove', (e) => {
+    const rect = container.getBoundingClientRect();
+    mouse.x = e.clientX - rect.left;
+    mouse.y = e.clientY - rect.top;
+  });
+
   function draw() {
     ctx.clearRect(0, 0, width, height);
-    ctx.beginPath();
-    for (let x = 0; x < width; x++) {
-      const y = 150 + noise.perlin2(x * 0.02, performance.now() * 0.001) * 50;
-      if (x === 0) ctx.moveTo(x, y);
-      else ctx.lineTo(x, y);
+
+    for (let x = 0; x < width; x += 10) {
+      const yBase = 150 + noise.perlin2(x * 0.01, performance.now() * 0.001) * 50;
+      const dist = Math.abs(x - mouse.x);
+      const waveEffect = Math.max(50 - dist / 2, 0);
+
+      const y = yBase - waveEffect;
+
+      ctx.beginPath();
+      ctx.arc(x, y, 2, 0, Math.PI * 2);
+      ctx.fillStyle = '#ffffff';
+      ctx.fill();
     }
-    ctx.lineWidth = 2;
-    ctx.strokeStyle = '#ffffff';
-    ctx.stroke();
+
     requestAnimationFrame(draw);
   }
 
@@ -142,4 +156,5 @@ function renderWaves() {
 document.addEventListener('DOMContentLoaded', () => {
   renderWaves();
 });
+
 
