@@ -204,19 +204,22 @@ nav ul li a:hover, nav ul li a:focus {
 
 /* New Waves Styling */
 #waves {
-    width: 100%; /* Ensure the waves fill the container */
-    height: 100%; /* Match the height of the container */
-    position: relative; /* Position the waves within the container */
-    overflow: hidden; /* Prevent overflow */
-    background-color: rgba(0, 0, 0, 0.5); /* Optional: Add a semi-transparent background */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+  overflow: hidden;
+  background: transparent; /* Transparent background */
+  z-index: -1; /* Ensure it stays behind other elements */
 }
 
-/* Canvas Styling */
 canvas {
-    display: block; /* Ensure the canvas is a block element */
-    width: 100%; /* Make the canvas fill the container width */
-    height: 100%; /* Match the height of the container */
+  display: block;
+  width: 100%;
+  height: 100%;
 }
+
 
 /* Content Styling */
 .home-content {
