@@ -192,16 +192,23 @@ nav ul li a:hover, nav ul li a:focus {
 /* Updated GIF Container (now used for Waves as well) */
 /* styles.css */
 
-/* Ensure #waves spans the entire page width */
+/* Ensure #waves spans the entire .gif-container */
 #waves {
-  position: absolute; /* Positioned relative to its parent container */
-  width: 100%; /* Full width of the parent container */
-  height: 400px; /* Height for the waves section */
-  overflow: hidden; /* Prevent scrollbars */
-  background: transparent; /* Transparent background */
-  z-index: 0; /* Ensure it appears in the correct stacking order */
+  width: 100%;
+  height: 100%;
+  position: absolute; /* Ensures it fills the parent container exactly */
 }
 
+/* Body layout */
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* Ensures the content takes at least the full viewport height */
+  margin: 0;
+  padding: 0; /* Ensures no extra padding */
+}
 
 /* Ensure the canvas fills its parent container */
 canvas {
@@ -211,17 +218,20 @@ canvas {
   background: transparent; /* Transparent canvas background */
 }
 
-/* gif-container may need adjustments to prevent restricting width */
+/* gif-container for circular waves */
 .gif-container {
-  position: relative;
-  width: 500px; /* Diameter of the circle */
-  height: 500px; /* Diameter of the circle */
-  margin: 0 auto; /* Centers horizontally */
-  margin-top: 50px; /* Adjust to center vertically between sections */
-  border-radius: 50%; /* Makes it a circle */
-  overflow: hidden; /* Ensures waves stay within the circle */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 300px; /* Diameter of the circle */
+  height: 300px; /* Diameter of the circle */
+  border-radius: 50%; /* Makes the container a circle */
+  overflow: hidden; /* Ensures waves don't spill outside the circle */
   background: transparent; /* Transparent background */
+  margin: 50px auto; /* Centers it horizontally and adds space above/below */
+  position: relative; /* Ensures children are positioned correctly */
 }
+
 
 /* Content Styling */
 .home-content {
