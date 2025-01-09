@@ -157,17 +157,20 @@ function renderWaves() {
   function draw() {
     ctx.clearRect(0, 0, width, height);
 
-    const waveLines = 100; // Increased number of wave lines for density
-    const lineSpacing = 5; // Reduced spacing between lines for smoother appearance
+    const waveLines = 100; // Number of wave lines
+    const lineSpacing = 6; // Slightly adjusted for a denser appearance
 
     for (let i = 0; i < waveLines; i++) {
       const yOffset = i * lineSpacing;
 
       ctx.beginPath();
-      for (let x = 0; x < width; x += 3) { // Smaller step for smoother curves
+      for (let x = 0; x < width; x += 2.5) { // Smaller step for ultra-smooth curves
         const baseY = height / 2 + yOffset - waveLines * lineSpacing / 2;
-        const noiseValue = noise.perlin(x * 0.01, i * 0.1 + performance.now() * 0.0002) * 30;
-        const waveEffect = Math.max(80 - Math.abs(mouse.x - x) / 5, 0); // Adjust wave effect by cursor distance
+        const noiseValue = noise.perlin(
+          x * 0.015, // Adjusted scale for smoother waves
+          i * 0.1 + performance.now() * 0.0003
+        ) * 25; // Lower amplitude for gentler waves
+        const waveEffect = Math.max(70 - Math.abs(mouse.x - x) / 6, 0); // Softer cursor effect
         const y = baseY + noiseValue - waveEffect;
 
         if (x === 0) {
@@ -177,8 +180,8 @@ function renderWaves() {
         }
       }
 
-      ctx.lineWidth = 1; // Thin line for smooth appearance
-      ctx.strokeStyle = "rgba(93, 82, 250, 0.9)"; // Tokyo Night purple with slight transparency
+      ctx.lineWidth = 1.2; // Slightly thicker lines for visibility
+      ctx.strokeStyle = "rgba(93, 82, 250, 0.8)"; // Tokyo Night purple with soft transparency
       ctx.stroke();
     }
 
