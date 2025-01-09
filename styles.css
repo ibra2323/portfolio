@@ -210,14 +210,16 @@ canvas {
 /* Wave-container to center the waves and adjust size */
 .wave-container {
   display: flex;
-  justify-content: center; /* Centers the waves horizontally */
-  align-items: center;     /* Centers the waves vertically */
-  width: 80%;              /* Adjust width as needed */
-  height: 400px;           /* Adjust height as needed */
-  margin: 0 auto;          /* Centers the container within the page */
-  padding: 20px;           /* Optional: Adds padding around the waves */
-  background: transparent; /* Ensure background is transparent */
+  justify-content: center;
+  align-items: center;
+  width: 400px; /* Diameter of the circle */
+  height: 400px; /* Diameter of the circle */
+  margin: 0 auto;
+  border-radius: 50%; /* Makes it a circle */
+  overflow: hidden;
+  background: transparent;
 }
+
 
 
 
