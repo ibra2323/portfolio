@@ -215,19 +215,39 @@ canvas {
   margin: 50px 0; /* Space above and below the section */
 }
 
+/* Keyframes for the smooth hover animation */
+@keyframes hoverEffect {
+  0%, 100% {
+    transform: translate(-50%, -50%) translateY(0); /* Start and end at the same position */
+  }
+  50% {
+    transform: translate(-50%, -50%) translateY(-15px); /* Move up slightly */
+  }
+}
+
 /* Wave-container for the circular waves */
 .wave-container {
-  position: absolute; /* Position relative to the wave section */
-  top: 50%; /* Center vertically in the section */
+  position: absolute; /* Positioned relative to the wave section */
+  top: 50%; /* Center vertically */
   left: 50%; /* Center horizontally */
-  transform: translate(-50%, -50%); /* Ensure exact centering */
+  transform: translate(-50%, -50%); /* Ensure it's centered */
   width: 400px; /* Diameter of the circle */
   height: 400px; /* Diameter of the circle */
   border-radius: 50%; /* Makes it a circle */
   overflow: hidden; /* Prevents overflow */
   background: transparent; /* Transparent background */
   z-index: 1; /* Ensure it stays above other content */
+  transition: transform 0.3s ease-in-out; /* Smooth transitions */
+
+  /* Optional: Add a subtle animation by default */
+  animation: hoverEffect 5s ease-in-out infinite; /* Smooth hover effect by default */
 }
+
+/* Hover effect */
+.wave-container:hover {
+  animation: hoverEffect 2s ease-in-out infinite; /* Speed up animation on hover */
+}
+
 
 
 /* Content Styling */
