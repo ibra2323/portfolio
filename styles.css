@@ -199,7 +199,6 @@ nav ul li a:hover, nav ul li a:focus {
   position: absolute; /* Ensures it fills the parent container exactly */
 }
 
-
 /* Ensure the canvas fills its parent container */
 canvas {
   display: block; /* Ensures canvas behaves as a block element */
@@ -213,10 +212,10 @@ canvas {
   display: flex;
   justify-content: center; /* Centers the gif-container horizontally */
   align-items: center; /* Centers the gif-container vertically */
-  height: 400px; /* Matches the height of the gif-container or adjusts as needed */
-  width: 100%; /* Full width to align with the page */
-  position: relative; /* Ensures it stays between sections without affecting others */
-  margin: 50px 0; /* Adds spacing between the "Hello" and "About Me" sections */
+  min-height: 100vh; /* Ensures it takes up the full viewport height */
+  position: relative; /* Ensures proper positioning */
+  margin: 0; /* No extra margin */
+  padding: 0; /* No padding */
 }
 
 /* Ensure the gif-container itself is centered within the wrapper */
@@ -227,9 +226,8 @@ canvas {
   overflow: hidden; /* Prevents overflow */
   background: transparent; /* Transparent background */
   position: relative; /* Positioning for child elements like waves */
+  z-index: 1; /* Ensure it's above the waves */
 }
-
-
 
 /* Content Styling */
 .home-content {
