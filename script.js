@@ -134,50 +134,43 @@ class Noise {
 // script.js
 
 function renderWaves() {
-  const canvas = document.createElement('canvas');
-  const ctx = canvas.getContext('2d');
   const container = document.getElementById('waves');
   const width = container.offsetWidth;
   const height = container.offsetHeight;
 
+  const canvas = document.createElement('canvas');
   canvas.width = width;
   canvas.height = height;
   container.appendChild(canvas);
 
+  const ctx = canvas.getContext('2d');
   const noise = new Noise();
-  let mouse = { x: width / 2, y: height / 2 }; // Default mouse position
+  let mouse = { x: width / 2, y: height / 2 };
 
-  // Track the mouse position
-  window.addEventListener('mousemove', (e) => {
+  // Track mouse position
+  container.addEventListener('mousemove', (e) => {
     const rect = container.getBoundingClientRect();
-    if (
-      e.clientY >= rect.top &&
-      e.clientY <= rect.bottom &&
-      e.clientX >= rect.left &&
-      e.clientX <= rect.right
-    ) {
-      mouse.x = e.clientX - rect.left;
-      mouse.y = e.clientY - rect.top;
-    }
+    mouse.x = e.clientX - rect.left;
+    mouse.y = e.clientY - rect.top;
   });
 
   function draw() {
     ctx.clearRect(0, 0, width, height);
 
-    const waveLines = 100; // Number of wave lines
-    const lineSpacing = 6; // Spacing between lines
+    const waveLines = 100;
+    const lineSpacing = 6;
 
     for (let i = 0; i < waveLines; i++) {
       const yOffset = i * lineSpacing;
 
       ctx.beginPath();
-      for (let x = 0; x < width; x += 3) { // Smaller step for smoother curves
-        const baseY = height / 2 + yOffset - waveLines * lineSpacing / 2;
+      for (let x = 0; x < width; x += 3) {
+        const baseY = height / 2 + yOffset - (waveLines * lineSpacing) / 2;
         const noiseValue = noise.perlin(
           x * 0.01,
           i * 0.1 + performance.now() * 0.0002
         ) * 30;
-        const waveEffect = Math.max(80 - Math.abs(mouse.x - x) / 5, 0); // Cursor interaction
+        const waveEffect = Math.max(80 - Math.abs(mouse.x - x) / 5, 0);
         const y = baseY + noiseValue - waveEffect;
 
         if (x === 0) {
@@ -188,7 +181,7 @@ function renderWaves() {
       }
 
       ctx.lineWidth = 1;
-      ctx.strokeStyle = "rgba(93, 82, 250, 0.9)"; // Tokyo Night purple with slight transparency
+      ctx.strokeStyle = 'rgba(93, 82, 250, 0.9)';
       ctx.stroke();
     }
 
@@ -197,6 +190,7 @@ function renderWaves() {
 
   draw();
 }
+
 
 
 
