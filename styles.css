@@ -194,33 +194,32 @@ nav ul li a:hover, nav ul li a:focus {
 
 #waves {
   position: relative; /* Position relative to its parent */
-  width: 100%;
-  height: 400px; /* Adjust height to fit the space */
+  width: 100vw; /* Full width of the viewport (ensures no gaps) */
+  height: 400px; /* Keep the height as it is */
   overflow: hidden; /* Ensure no scrollbars */
   background: transparent; /* Transparent background */
-  margin: 50px 0; /* Add spacing above and below the waves if needed */
+  margin: 0; /* Remove margins to make it fit flush across the page */
+  padding: 0; /* Ensure no extra padding around the waves */
 }
 
 canvas {
   display: block; /* Ensure canvas fills its container */
-  width: 100%;
-  height: 100%;
+  width: 100%; /* Ensure canvas width is 100% of #waves */
+  height: 100%; /* Ensure canvas height matches #waves */
   background: transparent; /* Transparent canvas */
 }
 
-
-
-
 .gif-container {
-  margin: 40px auto;
-  width: 100%;
-  max-width: 1200px;
-  height: auto; /* Adjusted to auto for responsive height */
-  border-radius: 15px;
-  overflow: hidden;
-  background: transparent;
-  padding: 0 1cm;
+  margin: 40px auto; /* Keeps other elements centered */
+  width: 100%; /* Full width */
+  max-width: 100%; /* Ensure it stretches the full width */
+  height: auto; /* Responsive height */
+  border-radius: 0; /* Remove border radius for rectangle shape */
+  overflow: hidden; /* Ensure no overflow */
+  background: transparent; /* Transparent background */
+  padding: 0; /* Remove padding for flush fit */
 }
+
 
 /* Content Styling */
 .home-content {
