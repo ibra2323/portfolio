@@ -114,7 +114,7 @@ function renderWaves() {
   const ctx = canvas.getContext('2d');
   const container = document.getElementById('waves');
   const width = container.offsetWidth;
-  const height = 300;
+  const height = container.offsetHeight;
 
   canvas.width = width;
   canvas.height = height;
@@ -134,17 +134,29 @@ function renderWaves() {
   function draw() {
     ctx.clearRect(0, 0, width, height);
 
-    for (let x = 0; x < width; x += 10) {
-      const yBase = 150 + noise.perlin2(x * 0.01, performance.now() * 0.001) * 50;
-      const dist = Math.abs(x - mouse.x);
-      const waveEffect = Math.max(50 - dist / 2, 0);
+    const waveLines = 50; // Number of wave lines
+    const lineSpacing = 10; // Spacing between lines
 
-      const y = yBase - waveEffect;
+    for (let i = 0; i < waveLines; i++) {
+      const yOffset = i * lineSpacing;
 
       ctx.beginPath();
-      ctx.arc(x, y, 2, 0, Math.PI * 2);
-      ctx.fillStyle = '#ffffff';
-      ctx.fill();
+      for (let x = 0; x < width; x += 5) {
+        const baseY = height / 2 + yOffset - waveLines * lineSpacing / 2;
+        const noiseValue = noise.perlin2(x * 0.005, i * 0.05 + performance.now() * 0.0005) * 50;
+        const waveEffect = Math.max(100 - Math.abs(mouse.x - x) / 2, 0);
+        const y = baseY + noiseValue - waveEffect;
+
+        if (x === 0) {
+          ctx.moveTo(x, y);
+        } else {
+          ctx.lineTo(x, y);
+        }
+      }
+
+      ctx.lineWidth = 1; // Line thickness
+      ctx.strokeStyle = "rgba(93, 82, 250, 0.8)"; // Tokyo Night purple with transparency
+      ctx.stroke();
     }
 
     requestAnimationFrame(draw);
@@ -152,6 +164,7 @@ function renderWaves() {
 
   draw();
 }
+
 
 document.addEventListener('DOMContentLoaded', () => {
   renderWaves();
