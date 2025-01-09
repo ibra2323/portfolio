@@ -194,12 +194,12 @@ nav ul li a:hover, nav ul li a:focus {
 
 /* Ensure #waves spans the entire page width */
 #waves {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 400px;
-  z-index: -1;
+  position: absolute; /* Positioned relative to its parent container */
+  width: 100%; /* Full width of the parent container */
+  height: 400px; /* Height for the waves section */
+  overflow: hidden; /* Prevent scrollbars */
+  background: transparent; /* Transparent background */
+  z-index: 0; /* Ensure it appears in the correct stacking order */
 }
 
 
@@ -215,7 +215,7 @@ canvas {
 .gif-container {
   margin: 0 auto; /* Center it horizontally */
   width: 100%; /* Allow it to span the full width */
-  max-width: 100%; /* Ensure it doesn’t restrict width */
+  max-width: 1200%; /* Ensure it doesn’t restrict width */
   height: auto; /* Let the height adjust based on content */
   border-radius: 0; /* No rounded corners */
   overflow: hidden; /* Prevent overflowing content */
