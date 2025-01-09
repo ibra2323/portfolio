@@ -209,16 +209,18 @@ canvas {
 
 /* Wave-container to center the waves and adjust size */
 .wave-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: absolute; /* Makes it fixed within the parent section */
+  top: 50%; /* Center vertically within the section */
+  left: 50%; /* Center horizontally within the section */
+  transform: translate(-50%, -50%); /* Center accurately */
   width: 400px; /* Diameter of the circle */
   height: 400px; /* Diameter of the circle */
-  margin: 0 auto;
   border-radius: 50%; /* Makes it a circle */
-  overflow: hidden;
-  background: transparent;
+  overflow: hidden; /* Ensures waves stay inside the circle */
+  background: transparent; /* Transparent background */
+  z-index: 1; /* Ensure it is above other elements if necessary */
 }
+
 
 
 
