@@ -121,7 +121,6 @@ function renderWaves() {
   container.appendChild(canvas);
 
   const noise = new Noise();
-
   let mouse = { x: width / 2, y: height / 2 };
 
   // Track the mouse position
@@ -134,17 +133,17 @@ function renderWaves() {
   function draw() {
     ctx.clearRect(0, 0, width, height);
 
-    const waveLines = 50; // Number of wave lines
-    const lineSpacing = 10; // Spacing between lines
+    const waveLines = 70; // Increased number of wave lines for smoother appearance
+    const lineSpacing = 8; // Smaller spacing between lines
 
     for (let i = 0; i < waveLines; i++) {
       const yOffset = i * lineSpacing;
 
       ctx.beginPath();
-      for (let x = 0; x < width; x += 5) {
+      for (let x = 0; x < width; x += 3) { // Smaller step for smoother curves
         const baseY = height / 2 + yOffset - waveLines * lineSpacing / 2;
-        const noiseValue = noise.perlin2(x * 0.005, i * 0.05 + performance.now() * 0.0005) * 50;
-        const waveEffect = Math.max(100 - Math.abs(mouse.x - x) / 2, 0);
+        const noiseValue = noise.perlin2(x * 0.005, i * 0.05 + performance.now() * 0.0005) * 30;
+        const waveEffect = Math.max(100 - Math.abs(mouse.x - x) / 3, 0);
         const y = baseY + noiseValue - waveEffect;
 
         if (x === 0) {
@@ -154,8 +153,8 @@ function renderWaves() {
         }
       }
 
-      ctx.lineWidth = 1; // Line thickness
-      ctx.strokeStyle = "rgba(93, 82, 250, 0.8)"; // Tokyo Night purple with transparency
+      ctx.lineWidth = 1; // Thin line for smooth appearance
+      ctx.strokeStyle = "rgba(93, 82, 250, 0.9)"; // Tokyo Night purple with slight transparency
       ctx.stroke();
     }
 
@@ -164,6 +163,7 @@ function renderWaves() {
 
   draw();
 }
+
 
 
 document.addEventListener('DOMContentLoaded', () => {
