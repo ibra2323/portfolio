@@ -189,30 +189,33 @@ nav ul li a:hover, nav ul li a:focus {
     transform: scale(1.05); /* Slightly scale up on hover */
 }
 
-/* GIF Styling */
+/* Updated GIF Container (now used for Waves as well) */
 .gif-container {
     margin: 40px auto; /* Center the container horizontally */
     margin-left: -58px;
     width: calc(1000% - 5cm); /* Leave a 1cm space on both sides */
-    max-width: 1200px; /* Ensure the gif doesn't get too large */
-    height: 600px; /* Set a specific height for the gif */
+    max-width: 1200px; /* Ensure the container doesn't get too large */
+    height: 600px; /* Set a specific height */
     border-radius: 15px; /* Rounded corners */
     overflow: hidden; /* Ensures the corners stay rounded */
-    background: transparent; /* Ensure the background is transparent */
-    padding: 0 1cm; /* Adjust padding to ensure it doesn't align with text */
-    
+    background: transparent; /* Background remains transparent */
+    padding: 0 1cm; /* Adjust padding for spacing */
 }
 
-.gif-image {
-    width: 75%; /* Make the image fill the container */
-    height: 100%; /* Ensure the image fills the height */
-    border-radius: 15px; /* Rounded corners */
-    background: transparent; /* Ensure the background is transparent */
-    transition: transform 0.3s ease-in-out; /* Smooth hover effect */
+/* New Waves Styling */
+#waves {
+    width: 100%; /* Ensure the waves fill the container */
+    height: 100%; /* Match the height of the container */
+    position: relative; /* Position the waves within the container */
+    overflow: hidden; /* Prevent overflow */
+    background-color: rgba(0, 0, 0, 0.5); /* Optional: Add a semi-transparent background */
 }
 
-.gif-image:hover {
-    transform: scale(1.05); /* Slightly scale up on hover */
+/* Canvas Styling */
+canvas {
+    display: block; /* Ensure the canvas is a block element */
+    width: 100%; /* Make the canvas fill the container width */
+    height: 100%; /* Match the height of the container */
 }
 
 /* Content Styling */
