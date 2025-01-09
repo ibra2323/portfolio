@@ -192,34 +192,38 @@ nav ul li a:hover, nav ul li a:focus {
 /* Updated GIF Container (now used for Waves as well) */
 /* styles.css */
 
+/* Ensure #waves spans the entire page width */
 #waves {
-  position: relative; /* Position relative to its parent */
-  width: 100vw; /* Full width of the viewport (ensures no gaps) */
-  height: 400px; /* Keep the height as it is */
-  overflow: hidden; /* Ensure no scrollbars */
+  position: relative; /* Keeps it positioned relative to its parent */
+  width: 100%; /* Ensure it spans the full width of its container */
+  height: 400px; /* Set height to fit the desired section size */
+  overflow: hidden; /* Prevent scrollbars */
   background: transparent; /* Transparent background */
-  margin: 0; /* Remove margins to make it fit flush across the page */
-  padding: 0; /* Ensure no extra padding around the waves */
+  padding: 0; /* Remove any extra padding */
+  margin: 0; /* No extra margin above or below */
+  left: 0; /* Ensures it starts at the very left */
+  right: 0; /* Ensures it ends at the very right */
 }
 
+/* Ensure the canvas fills its parent container */
 canvas {
-  display: block; /* Ensure canvas fills its container */
-  width: 100%; /* Ensure canvas width is 100% of #waves */
-  height: 100%; /* Ensure canvas height matches #waves */
-  background: transparent; /* Transparent canvas */
+  display: block; /* Ensures canvas behaves as a block element */
+  width: 100%; /* Fills the full width of the parent */
+  height: 100%; /* Matches the height of the parent */
+  background: transparent; /* Transparent canvas background */
 }
 
+/* gif-container may need adjustments to prevent restricting width */
 .gif-container {
-  margin: 40px auto; /* Keeps other elements centered */
-  width: 100%; /* Full width */
-  max-width: 100%; /* Ensure it stretches the full width */
-  height: auto; /* Responsive height */
-  border-radius: 0; /* Remove border radius for rectangle shape */
-  overflow: hidden; /* Ensure no overflow */
+  margin: 0 auto; /* Center it horizontally */
+  width: 100%; /* Allow it to span the full width */
+  max-width: 100%; /* Ensure it doesn’t restrict width */
+  height: auto; /* Let the height adjust based on content */
+  border-radius: 0; /* No rounded corners */
+  overflow: hidden; /* Prevent overflowing content */
+  padding: 0; /* No padding */
   background: transparent; /* Transparent background */
-  padding: 0; /* Remove padding for flush fit */
 }
-
 
 /* Content Styling */
 .home-content {
