@@ -194,16 +194,14 @@ nav ul li a:hover, nav ul li a:focus {
 
 /* Ensure #waves spans the entire page width */
 #waves {
-  position: relative; /* Keeps it positioned relative to its parent */
-  width: 100%; /* Ensure it spans the full width of its container */
-  height: 400px; /* Set height to fit the desired section size */
-  overflow: hidden; /* Prevent scrollbars */
-  background: transparent; /* Transparent background */
-  padding: 0; /* Remove any extra padding */
-  margin: 0; /* No extra margin above or below */
-  left: 0; /* Ensures it starts at the very left */
-  right: 0; /* Ensures it ends at the very right */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 400px;
+  z-index: -1;
 }
+
 
 /* Ensure the canvas fills its parent container */
 canvas {
