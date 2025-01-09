@@ -192,8 +192,6 @@ function renderWaves() {
 }
 
 
-
-
 document.addEventListener('DOMContentLoaded', () => {
   renderWaves();
 });
