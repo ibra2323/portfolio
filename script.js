@@ -134,7 +134,6 @@ class Noise {
 function renderWaves() {
   const canvas = document.createElement('canvas');
   const ctx = canvas.getContext('2d');
-  const noise = new Noise();
   const container = document.getElementById('waves');
   const width = container.offsetWidth;
   const height = container.offsetHeight;
@@ -143,32 +142,50 @@ function renderWaves() {
   canvas.height = height;
   container.appendChild(canvas);
 
-  let mouseX = width / 2;
-  let mouseY = height / 2;
+  const noise = new Noise();
+  let mouse = { x: width / 2, y: height / 2 }; // Initial mouse position
 
+  // Track the mouse position
   container.addEventListener('mousemove', (e) => {
     const rect = container.getBoundingClientRect();
-    mouseX = e.clientX - rect.left;
-    mouseY = e.clientY - rect.top;
+    mouse.x = e.clientX - rect.left;
+    mouse.y = e.clientY - rect.top;
   });
 
   function draw() {
     ctx.clearRect(0, 0, width, height);
-    ctx.beginPath();
-    const time = Date.now() * 0.001;
-    for (let x = 0; x < width; x++) {
-      const y = height / 2 + noise.perlin(x * 0.01 + mouseX * 0.005, time) * 50;
-      if (x === 0) ctx.moveTo(x, y);
-      else ctx.lineTo(x, y);
+
+    const waveLines = 100; // Increased number of wave lines for density
+    const lineSpacing = 5; // Reduced spacing between lines for smoother appearance
+
+    for (let i = 0; i < waveLines; i++) {
+      const yOffset = i * lineSpacing;
+
+      ctx.beginPath();
+      for (let x = 0; x < width; x += 3) { // Smaller step for smoother curves
+        const baseY = height / 2 + yOffset - waveLines * lineSpacing / 2;
+        const noiseValue = noise.perlin(x * 0.01, i * 0.1 + performance.now() * 0.0002) * 30;
+        const waveEffect = Math.max(80 - Math.abs(mouse.x - x) / 5, 0); // Adjust wave effect by cursor distance
+        const y = baseY + noiseValue - waveEffect;
+
+        if (x === 0) {
+          ctx.moveTo(x, y);
+        } else {
+          ctx.lineTo(x, y);
+        }
+      }
+
+      ctx.lineWidth = 1; // Thin line for smooth appearance
+      ctx.strokeStyle = "rgba(93, 82, 250, 0.9)"; // Tokyo Night purple with slight transparency
+      ctx.stroke();
     }
-    ctx.lineWidth = 2;
-    ctx.strokeStyle = '#9a79cf'; // Tokyo Night purple
-    ctx.stroke();
+
     requestAnimationFrame(draw);
   }
 
   draw();
 }
+
 
 document.addEventListener('DOMContentLoaded', () => {
   renderWaves();
