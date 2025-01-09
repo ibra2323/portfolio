@@ -145,32 +145,39 @@ function renderWaves() {
   container.appendChild(canvas);
 
   const noise = new Noise();
-  let mouse = { x: width / 2, y: height / 2 }; // Initial mouse position
+  let mouse = { x: width / 2, y: height / 2 }; // Default mouse position
 
   // Track the mouse position
-  container.addEventListener('mousemove', (e) => {
+  window.addEventListener('mousemove', (e) => {
     const rect = container.getBoundingClientRect();
-    mouse.x = e.clientX - rect.left;
-    mouse.y = e.clientY - rect.top;
+    if (
+      e.clientY >= rect.top &&
+      e.clientY <= rect.bottom &&
+      e.clientX >= rect.left &&
+      e.clientX <= rect.right
+    ) {
+      mouse.x = e.clientX - rect.left;
+      mouse.y = e.clientY - rect.top;
+    }
   });
 
   function draw() {
     ctx.clearRect(0, 0, width, height);
 
     const waveLines = 100; // Number of wave lines
-    const lineSpacing = 6; // Slightly adjusted for a denser appearance
+    const lineSpacing = 6; // Spacing between lines
 
     for (let i = 0; i < waveLines; i++) {
       const yOffset = i * lineSpacing;
 
       ctx.beginPath();
-      for (let x = 0; x < width; x += 2.5) { // Smaller step for ultra-smooth curves
+      for (let x = 0; x < width; x += 3) { // Smaller step for smoother curves
         const baseY = height / 2 + yOffset - waveLines * lineSpacing / 2;
         const noiseValue = noise.perlin(
-          x * 0.015, // Adjusted scale for smoother waves
-          i * 0.1 + performance.now() * 0.0003
-        ) * 25; // Lower amplitude for gentler waves
-        const waveEffect = Math.max(70 - Math.abs(mouse.x - x) / 6, 0); // Softer cursor effect
+          x * 0.01,
+          i * 0.1 + performance.now() * 0.0002
+        ) * 30;
+        const waveEffect = Math.max(80 - Math.abs(mouse.x - x) / 5, 0); // Cursor interaction
         const y = baseY + noiseValue - waveEffect;
 
         if (x === 0) {
@@ -180,8 +187,8 @@ function renderWaves() {
         }
       }
 
-      ctx.lineWidth = 1.2; // Slightly thicker lines for visibility
-      ctx.strokeStyle = "rgba(93, 82, 250, 0.8)"; // Tokyo Night purple with soft transparency
+      ctx.lineWidth = 1;
+      ctx.strokeStyle = "rgba(93, 82, 250, 0.9)"; // Tokyo Night purple with slight transparency
       ctx.stroke();
     }
 
@@ -190,6 +197,7 @@ function renderWaves() {
 
   draw();
 }
+
 
 
 document.addEventListener('DOMContentLoaded', () => {
