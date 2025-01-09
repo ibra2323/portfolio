@@ -145,7 +145,7 @@ function renderWaves() {
   container.appendChild(canvas);
 
   const noise = new Noise();
-  let mouse = { x: width / 2, y: height / 2 };
+  let mouse = { x: width / 2, y: height / 2 }; // Initial mouse position
 
   // Track the mouse position
   container.addEventListener('mousemove', (e) => {
@@ -157,21 +157,17 @@ function renderWaves() {
   function draw() {
     ctx.clearRect(0, 0, width, height);
 
-    const waveLines = 50; // Number of wave lines
-    const lineSpacing = 10; // Spacing between lines
+    const waveLines = 100; // Increased number of wave lines for density
+    const lineSpacing = 5; // Reduced spacing between lines for smoother appearance
 
     for (let i = 0; i < waveLines; i++) {
       const yOffset = i * lineSpacing;
 
       ctx.beginPath();
-      for (let x = 0; x < width; x += 5) {
-        const baseY = height / 2 + yOffset - (waveLines * lineSpacing) / 2;
-        const noiseValue = noise.perlin2(
-          x * 0.01,
-          i * 0.1 + performance.now() * 0.0005
-        ) * 20;
-        const distanceToMouse = Math.abs(mouse.x - x);
-        const waveEffect = Math.max(50 - distanceToMouse / 10, 0);
+      for (let x = 0; x < width; x += 3) { // Smaller step for smoother curves
+        const baseY = height / 2 + yOffset - waveLines * lineSpacing / 2;
+        const noiseValue = noise.perlin(x * 0.01, i * 0.1 + performance.now() * 0.0002) * 30;
+        const waveEffect = Math.max(80 - Math.abs(mouse.x - x) / 5, 0); // Adjust wave effect by cursor distance
         const y = baseY + noiseValue - waveEffect;
 
         if (x === 0) {
@@ -181,8 +177,8 @@ function renderWaves() {
         }
       }
 
-      ctx.lineWidth = 1;
-      ctx.strokeStyle = 'rgba(93, 82, 250, 0.8)'; // Tokyo Night purple
+      ctx.lineWidth = 1; // Thin line for smooth appearance
+      ctx.strokeStyle = "rgba(93, 82, 250, 0.9)"; // Tokyo Night purple with slight transparency
       ctx.stroke();
     }
 
@@ -191,7 +187,6 @@ function renderWaves() {
 
   draw();
 }
-
 
 
 document.addEventListener('DOMContentLoaded', () => {
