@@ -26,14 +26,14 @@ module.exports = async (req, res) => {
             const transporter = nodemailer.createTransport({
                 service: 'gmail',
                 auth: {
-                    user: 'ibrahim.2003.aldarraji@gmail.com', // your email
-                    pass: 'hjuxyvmgfokimtgg' // app password
+                    user: '', // your email
+                    pass: '' // app password
                 }
             });
 
             const mailOptions = {
                 from: email,
-                to: 'ibrahim.2003.aldarraji@gmail.com',
+                to: '',
                 subject: `New message from ${name}`,
                 text: message
             };
